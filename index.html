@@ -21,7 +21,7 @@ background-position:center;
 }
 
 .overlay{
-background:rgba(0,0,0,0.35);
+background:rgba(0,0,0,0.15); /* lebih terang */
 min-height:100vh;
 padding:20px;
 }
@@ -40,7 +40,7 @@ margin-top:20px;
 }
 
 .card{
-background:rgba(0,0,0,0.7);
+background:rgba(0,0,0,0.65);
 padding:16px;
 border-radius:12px;
 cursor:pointer;
@@ -141,17 +141,13 @@ cursor:pointer;
 <h3><img src="wood.png">Kayu</h3>
 </div>
 
-<div class="card" onclick="selectItem(this,'Kayu')">
-<h3><img src="wood.png">Kayu</h3>
-</div>
-
 </div>
 
 <div class="payments">
 
 <h3>Pilih Metode Pembayaran</h3>
 
-<button class="pay-btn" onclick="selectPay(this,'Dana')">DANA</button>
+<button class="pay-btn" onclick="selectPay(this,'DANA')">DANA</button>
 <button class="pay-btn" onclick="selectPay(this,'OVO')">OVO</button>
 <button class="pay-btn" onclick="selectPay(this,'GoPay')">GoPay</button>
 <button class="pay-btn" onclick="selectPay(this,'QRIS')">QRIS</button>
