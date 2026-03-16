@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Jasa Cari Barang Minecraft</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Jasa Mining Minecraft</title>
 
 <style>
 
@@ -10,33 +14,41 @@ margin:0;
 font-family:Arial;
 color:white;
 text-align:center;
-background:url("minecraft-bg.jpg");
+
+background-image:url("minecraft-bg.jpg");
 background-size:cover;
 background-position:center;
 }
 
-.header{
-background:black;
-padding:30px;
+.overlay{
+background:rgba(0,0,0,0.35);
+min-height:100vh;
+padding:20px;
+}
+
+h1{
+margin-top:10px;
 }
 
 .grid{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:15px;
-padding:20px;
+gap:12px;
+max-width:500px;
+margin:auto;
+margin-top:20px;
 }
 
 .card{
-background:rgba(0,0,0,0.65);
-padding:20px;
-border-radius:15px;
+background:rgba(0,0,0,0.7);
+padding:16px;
+border-radius:12px;
 cursor:pointer;
 transition:0.2s;
 }
 
 .card img{
-width:35px;
+width:30px;
 vertical-align:middle;
 margin-right:6px;
 }
@@ -46,89 +58,91 @@ transform:scale(1.05);
 }
 
 .selected{
-border:3px solid #00ff9d;
+border:3px solid #00ff88;
 transform:scale(1.1);
 }
 
 .payments{
-margin-top:20px;
+margin-top:25px;
 }
 
-button{
-padding:15px;
+.pay-btn{
+background:#333;
 border:none;
-border-radius:10px;
-background:#00ff9d;
-font-weight:bold;
-font-size:16px;
+color:white;
+padding:10px 16px;
 margin:5px;
+border-radius:8px;
 cursor:pointer;
 }
 
-.order{
+.pay-selected{
+background:#00ff88;
+color:black;
+font-weight:bold;
+}
+
+.order-btn{
 margin-top:20px;
+background:#25D366;
+border:none;
+padding:14px 26px;
+font-size:16px;
+border-radius:10px;
+cursor:pointer;
 }
 
 </style>
+
 </head>
 
 <body>
 
-<div class="header">
+<div class="overlay">
+
 <h1>⛏️ Jasa Cari Barang Minecraft</h1>
 <p>Order mining sesuai kebutuhan kamu</p>
-</div>
 
 <div class="grid">
 
-<div class="card" onclick="pilih(this,'Diamond')">
+<div class="card" onclick="selectItem(this,'Diamond')">
 <h3><img src="diamond.png">Diamond</h3>
-<p>Ore Langka</p>
 </div>
 
-<div class="card" onclick="pilih(this,'Coal')">
+<div class="card" onclick="selectItem(this,'Coal')">
 <h3><img src="coal.png">Coal</h3>
-<p>Ore Biasa</p>
 </div>
 
-<div class="card" onclick="pilih(this,'Netherite')">
+<div class="card" onclick="selectItem(this,'Netherite')">
 <h3><img src="netherite.png">Netherite</h3>
-<p>Ancient Debris</p>
 </div>
 
-<div class="card" onclick="pilih(this,'Copper')">
+<div class="card" onclick="selectItem(this,'Copper')">
 <h3><img src="copper.png">Copper</h3>
-<p>Ore Biasa</p>
 </div>
 
-<div class="card" onclick="pilih(this,'Gold')">
+<div class="card" onclick="selectItem(this,'Gold')">
 <h3><img src="gold.png">Gold</h3>
-<p>Ore Langka</p>
 </div>
 
-<div class="card" onclick="pilih(this,'Iron')">
+<div class="card" onclick="selectItem(this,'Iron')">
 <h3><img src="iron.png">Iron</h3>
-<p>Ore Biasa</p>
 </div>
 
-<div class="card" onclick="pilih(this,'Redstone')">
+<div class="card" onclick="selectItem(this,'Redstone')">
 <h3><img src="redstone.png">Redstone</h3>
-<p>Ore Langka</p>
 </div>
 
-<div class="card" onclick="pilih(this,'Lapis')">
+<div class="card" onclick="selectItem(this,'Lapis Lazuli')">
 <h3><img src="lapis.png">Lapis Lazuli</h3>
-<p>Ore Biasa</p>
 </div>
 
-<div class="card" onclick="pilih(this,'Kayu')">
+<div class="card" onclick="selectItem(this,'Kayu')">
 <h3><img src="wood.png">Kayu</h3>
-<p>Semua jenis kayu</p>
 </div>
 
-<div class="card" onclick="pilih(this,'Kayu')">
+<div class="card" onclick="selectItem(this,'Kayu')">
 <h3><img src="wood.png">Kayu</h3>
-<p>Semua jenis kayu</p>
 </div>
 
 </div>
@@ -137,59 +151,63 @@ margin-top:20px;
 
 <h3>Pilih Metode Pembayaran</h3>
 
-<button onclick="bayar('Dana')">Dana</button>
-<button onclick="bayar('Ovo')">OVO</button>
-<button onclick="bayar('Gopay')">GoPay</button>
-<button onclick="bayar('QRIS')">QRIS</button>
+<button class="pay-btn" onclick="selectPay(this,'Dana')">DANA</button>
+<button class="pay-btn" onclick="selectPay(this,'OVO')">OVO</button>
+<button class="pay-btn" onclick="selectPay(this,'GoPay')">GoPay</button>
+<button class="pay-btn" onclick="selectPay(this,'QRIS')">QRIS</button>
 
 </div>
 
-<div class="order">
-<button onclick="order()">ORDER SEKARANG</button>
+<button class="order-btn" onclick="sendOrder()">Order via WhatsApp</button>
+
 </div>
 
 <script>
 
-let item="";
-let metode="";
+let item=""
+let pay=""
 
-function pilih(card,nama){
+function selectItem(card,name){
 
 document.querySelectorAll(".card").forEach(c=>{
-c.classList.remove("selected");
+c.classList.remove("selected")
 })
 
 card.classList.add("selected")
-item=nama
+
+item=name
 
 }
 
-function bayar(nama){
-metode=nama
-alert("Metode pembayaran: "+nama)
+function selectPay(btn,name){
+
+document.querySelectorAll(".pay-btn").forEach(b=>{
+b.classList.remove("pay-selected")
+})
+
+btn.classList.add("pay-selected")
+
+pay=name
+
 }
 
-function order(){
+function sendOrder(){
 
-if(item==""){
-alert("Pilih barang dulu")
+if(item=="" || pay==""){
+alert("Pilih item dan metode pembayaran dulu!")
 return
 }
 
-if(metode==""){
-alert("Pilih metode pembayaran dulu")
-return
-}
+let text="Min saya mau beli "+item+" dan saya bayar pakai "+pay
 
-let pesan="Min saya mau beli "+item+" dan saya bayar pakai "+metode
+let url="https://wa.me/628984830064?text="+encodeURIComponent(text)
 
-let wa="https://wa.me/628984830064?text="+encodeURIComponent(pesan)
-
-window.open(wa)
+window.open(url)
 
 }
 
 </script>
 
 </body>
+
 </html>
