@@ -4,7 +4,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Jasa Cari Barang Minecraft</title>
+<title>Jasa Mining Minecraft</title>
 
 <style>
 
@@ -27,30 +27,19 @@ min-height:100vh;
 padding:20px;
 }
 
-h1{
-font-size:28px;
-margin-bottom:5px;
-}
-
-.subtitle{
-margin-bottom:25px;
-}
-
 .container{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:15px;
 max-width:500px;
 margin:auto;
+margin-top:20px;
 }
-
-/* ITEM CARD */
 
 .card{
 background:rgba(30,30,30,0.9);
 padding:18px;
 border-radius:12px;
-box-shadow:0 0 10px black;
 cursor:pointer;
 transition:0.2s;
 }
@@ -69,12 +58,6 @@ color:#00ff88;
 font-weight:bold;
 }
 
-/* PAYMENT */
-
-.payments{
-margin-top:30px;
-}
-
 .payment-btn{
 background:#333;
 border:none;
@@ -83,11 +66,6 @@ padding:12px 18px;
 margin:5px;
 border-radius:8px;
 cursor:pointer;
-transition:0.2s;
-}
-
-.payment-btn:hover{
-background:#555;
 }
 
 .payment-selected{
@@ -96,27 +74,14 @@ color:black;
 font-weight:bold;
 }
 
-/* ORDER BUTTON */
-
 .order-btn{
-margin-top:30px;
+margin-top:25px;
 background:#25D366;
 border:none;
 padding:15px 30px;
 font-size:18px;
 border-radius:10px;
 cursor:pointer;
-box-shadow:0 0 10px black;
-}
-
-.order-btn:hover{
-transform:scale(1.05);
-}
-
-.footer{
-margin-top:40px;
-font-size:13px;
-opacity:0.8;
 }
 
 </style>
@@ -127,54 +92,43 @@ opacity:0.8;
 
 <div class="overlay">
 
-<h1>⛏️ Jasa Mining Minecraft</h1>
-<p class="subtitle">Malas cari bahan? Biar Ojan yang cariin!</p>
+<h1>⛏️ Jasa Cari Barang Minecraft</h1>
+<p>Malas mining? Biar Ojan yang cariin!</p>
 
 <div class="container">
 
 <div class="card" onclick="selectItem(this,'Kayu 1 Stack')">
 <h3>🌳 Kayu</h3>
-<p>Semua jenis kayu</p>
 <p class="price">Rp2.000 / stack</p>
 </div>
 
 <div class="card" onclick="selectItem(this,'Ore Biasa')">
 <h3>🪨 Ore Biasa</h3>
 <p>Coal / Iron / Copper</p>
-<p class="price">Mulai Rp2.000</p>
 </div>
 
 <div class="card" onclick="selectItem(this,'Ore Langka')">
 <h3>💎 Ore Langka</h3>
 <p>Diamond / Gold</p>
-<p class="price">Harga sesuai jumlah</p>
 </div>
 
 <div class="card" onclick="selectItem(this,'Ancient Debris')">
 <h3>🔥 Nether</h3>
 <p>Ancient Debris</p>
-<p class="price">Request harga</p>
 </div>
 
 </div>
 
-<div class="payments">
-
-<h2>Metode Pembayaran</h2>
+<h2>Pilih Metode Pembayaran</h2>
 
 <button class="payment-btn" onclick="selectPay(this,'GoPay')">GoPay</button>
 <button class="payment-btn" onclick="selectPay(this,'OVO')">OVO</button>
 <button class="payment-btn" onclick="selectPay(this,'DANA')">DANA</button>
 <button class="payment-btn" onclick="selectPay(this,'QRIS')">QRIS</button>
-<button class="payment-btn" onclick="selectPay(this,'Transfer Bank')">Transfer Bank</button>
 
-</div>
+<br>
 
 <button class="order-btn" onclick="sendOrder()">Order via WhatsApp</button>
-
-<div class="footer">
-Website order jasa mining Minecraft
-</div>
 
 </div>
 
@@ -214,12 +168,10 @@ alert("Pilih item dan metode pembayaran dulu!")
 return
 }
 
-let text=
-"Min saya mau beli: "+selectedItem+
-"%0A"+"Saya pakai metode pembayaran: "+selectedPayment
+let text="Min saya mau beli: "+selectedItem+
+"%0ASaya pakai metode pembayaran: "+selectedPayment
 
-let url=
-"https://wa.me/628984830064?text="+text
+let url="https://wa.me/628984830064?text="+text
 
 window.open(url)
 
