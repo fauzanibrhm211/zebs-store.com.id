@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Jasa Mining Minecraft</title>
+<title>Jasa Mining Minecraft - Ojan</title>
 
 <style>
 
 body{
 margin:0;
-font-family:Arial;
+font-family:Arial, sans-serif;
 color:white;
 text-align:center;
 
@@ -22,9 +20,13 @@ background-color:black;
 }
 
 .overlay{
-background:rgba(0,0,0,0.6);
+background:rgba(0,0,0,0.25);
 min-height:100vh;
 padding:20px;
+}
+
+h1{
+margin-top:10px;
 }
 
 .container{
@@ -37,7 +39,7 @@ margin-top:20px;
 }
 
 .card{
-background:rgba(30,30,30,0.9);
+background:rgba(30,30,30,0.85);
 padding:18px;
 border-radius:12px;
 cursor:pointer;
@@ -58,11 +60,15 @@ color:#00ff88;
 font-weight:bold;
 }
 
+.payments{
+margin-top:25px;
+}
+
 .payment-btn{
 background:#333;
 border:none;
 color:white;
-padding:12px 18px;
+padding:10px 16px;
 margin:5px;
 border-radius:8px;
 cursor:pointer;
@@ -78,14 +84,13 @@ font-weight:bold;
 margin-top:25px;
 background:#25D366;
 border:none;
-padding:15px 30px;
-font-size:18px;
+padding:14px 28px;
+font-size:17px;
 border-radius:10px;
 cursor:pointer;
 }
 
 </style>
-
 </head>
 
 <body>
@@ -105,6 +110,7 @@ cursor:pointer;
 <div class="card" onclick="selectItem(this,'Ore Biasa')">
 <h3>🪨 Ore Biasa</h3>
 <p>Coal / Iron / Copper</p>
+<p class="price">Mulai Rp2.000</p>
 </div>
 
 <div class="card" onclick="selectItem(this,'Ore Langka')">
@@ -119,6 +125,8 @@ cursor:pointer;
 
 </div>
 
+<div class="payments">
+
 <h2>Pilih Metode Pembayaran</h2>
 
 <button class="payment-btn" onclick="selectPay(this,'GoPay')">GoPay</button>
@@ -126,7 +134,7 @@ cursor:pointer;
 <button class="payment-btn" onclick="selectPay(this,'DANA')">DANA</button>
 <button class="payment-btn" onclick="selectPay(this,'QRIS')">QRIS</button>
 
-<br>
+</div>
 
 <button class="order-btn" onclick="sendOrder()">Order via WhatsApp</button>
 
@@ -134,46 +142,46 @@ cursor:pointer;
 
 <script>
 
-let selectedItem=""
-let selectedPayment=""
+let selectedItem="";
+let selectedPayment="";
 
 function selectItem(card,item){
 
 document.querySelectorAll(".card").forEach(c=>{
-c.classList.remove("selected")
-})
+c.classList.remove("selected");
+});
 
-card.classList.add("selected")
+card.classList.add("selected");
 
-selectedItem=item
+selectedItem=item;
 
 }
 
 function selectPay(btn,pay){
 
 document.querySelectorAll(".payment-btn").forEach(b=>{
-b.classList.remove("payment-selected")
-})
+b.classList.remove("payment-selected");
+});
 
-btn.classList.add("payment-selected")
+btn.classList.add("payment-selected");
 
-selectedPayment=pay
+selectedPayment=pay;
 
 }
 
 function sendOrder(){
 
 if(selectedItem=="" || selectedPayment==""){
-alert("Pilih item dan metode pembayaran dulu!")
-return
+alert("Pilih item dan metode pembayaran dulu!");
+return;
 }
 
 let text="Min saya mau beli: "+selectedItem+
-"%0ASaya pakai metode pembayaran: "+selectedPayment
+"%0ASaya pakai metode pembayaran: "+selectedPayment;
 
-let url="https://wa.me/628984830064?text="+text
+let url="https://wa.me/628984830064?text="+text;
 
-window.open(url)
+window.open(url);
 
 }
 
