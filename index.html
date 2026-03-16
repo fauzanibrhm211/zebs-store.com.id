@@ -11,11 +11,9 @@ margin:0;
 font-family:Arial;
 color:white;
 text-align:center;
-
 background-image:url("creeper.png");
 background-size:cover;
 background-position:center;
-background-repeat:no-repeat;
 }
 
 .overlay{
@@ -28,11 +26,6 @@ h1{
 font-size:32px;
 }
 
-.subtitle{
-margin-bottom:30px;
-}
-
-/* GRID 2x2 */
 .container{
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -46,6 +39,12 @@ background:#1e1e1e;
 padding:20px;
 border-radius:12px;
 box-shadow:0 0 10px black;
+cursor:pointer;
+transition:0.2s;
+}
+
+.card:hover{
+transform:scale(1.05);
 }
 
 .price{
@@ -53,21 +52,23 @@ color:#00ff88;
 font-weight:bold;
 }
 
-.order{
-margin-top:30px;
-}
-
-.order-btn{
+button{
 background:#25D366;
 border:none;
-padding:15px 35px;
+padding:15px 30px;
 font-size:18px;
 border-radius:10px;
 cursor:pointer;
+margin-top:20px;
 }
 
-.order-btn:hover{
-background:#1ebe5d;
+.payments{
+margin-top:40px;
+}
+
+.payments img{
+width:60px;
+margin:10px;
 }
 
 </style>
@@ -78,29 +79,29 @@ background:#1ebe5d;
 <div class="overlay">
 
 <h1>⛏️ Jasa Cari Barang Minecraft</h1>
-<p class="subtitle">Malas mining? Biar Ojan yang cariin!</p>
+<p>Malas mining? Biar Ojan yang cariin!</p>
 
 <div class="container">
 
-<div class="card">
+<div class="card" onclick="order('Kayu 1 Stack')">
 <h2>🌳 Kayu</h2>
 <p>Semua jenis kayu</p>
 <p class="price">1 Stack = Rp2.000</p>
 </div>
 
-<div class="card">
+<div class="card" onclick="order('Ore Biasa')">
 <h2>🪨 Ore Biasa</h2>
 <p>Coal / Iron / Copper</p>
 <p class="price">Mulai Rp2.000</p>
 </div>
 
-<div class="card">
+<div class="card" onclick="order('Ore Langka')">
 <h2>💎 Ore Langka</h2>
 <p>Diamond / Gold</p>
 <p class="price">Harga sesuai jumlah</p>
 </div>
 
-<div class="card">
+<div class="card" onclick="order('Ancient Debris')">
 <h2>🔥 Nether</h2>
 <p>Ancient Debris</p>
 <p class="price">Request harga</p>
@@ -108,17 +109,39 @@ background:#1ebe5d;
 
 </div>
 
-<div class="order">
+<button onclick="order('Order item Minecraft')">
+Order via WhatsApp
+</button>
 
-<h2>Order Sekarang</h2>
+<div class="payments">
 
-<a href="https://wa.me/628984830064">
-<button class="order-btn">Chat WhatsApp</button>
-</a>
+<h2>Metode Pembayaran</h2>
+
+<p>
+💚 GoPay<br>
+💜 OVO<br>
+💙 DANA<br>
+🟡 QRIS<br>
+🏦 Transfer Bank
+</p>
 
 </div>
 
 </div>
+
+<script>
+
+function order(item){
+
+let text = "Halo, saya ingin order: " + item;
+
+let url = "https://wa.me/628984830064?text=" + encodeURIComponent(text);
+
+window.open(url);
+
+}
+
+</script>
 
 </body>
 </html>
