@@ -9,21 +9,17 @@
 body{
 margin:0;
 font-family:Arial;
-color:white;
 text-align:center;
+color:white;
 background-image:url("creeper.png");
 background-size:cover;
 background-position:center;
 }
 
 .overlay{
-background:rgba(0,0,0,0.65);
+background:rgba(0,0,0,0.7);
 min-height:100vh;
 padding:30px;
-}
-
-h1{
-font-size:32px;
 }
 
 .container{
@@ -34,6 +30,7 @@ max-width:500px;
 margin:auto;
 }
 
+/* CARD ITEM */
 .card{
 background:#1e1e1e;
 padding:20px;
@@ -47,28 +44,47 @@ transition:0.2s;
 transform:scale(1.05);
 }
 
+/* CARD YANG DIPILIH */
+.selected{
+border:3px solid #00ff88;
+transform:scale(1.08);
+}
+
 .price{
 color:#00ff88;
 font-weight:bold;
 }
 
-button{
+/* PAYMENT */
+.payments{
+margin-top:30px;
+}
+
+.payment-btn{
+background:#333;
+border:none;
+color:white;
+padding:12px 20px;
+margin:5px;
+border-radius:8px;
+cursor:pointer;
+}
+
+.payment-selected{
+background:#00ff88;
+color:black;
+font-weight:bold;
+}
+
+/* ORDER BUTTON */
+.order-btn{
+margin-top:30px;
 background:#25D366;
 border:none;
 padding:15px 30px;
 font-size:18px;
 border-radius:10px;
 cursor:pointer;
-margin-top:20px;
-}
-
-.payments{
-margin-top:40px;
-}
-
-.payments img{
-width:60px;
-margin:10px;
 }
 
 </style>
@@ -83,25 +99,25 @@ margin:10px;
 
 <div class="container">
 
-<div class="card" onclick="order('Kayu 1 Stack')">
+<div class="card" onclick="selectItem(this,'Kayu 1 Stack')">
 <h2>🌳 Kayu</h2>
 <p>Semua jenis kayu</p>
-<p class="price">1 Stack = Rp2.000</p>
+<p class="price">Rp2.000</p>
 </div>
 
-<div class="card" onclick="order('Ore Biasa')">
+<div class="card" onclick="selectItem(this,'Ore Biasa')">
 <h2>🪨 Ore Biasa</h2>
 <p>Coal / Iron / Copper</p>
 <p class="price">Mulai Rp2.000</p>
 </div>
 
-<div class="card" onclick="order('Ore Langka')">
+<div class="card" onclick="selectItem(this,'Ore Langka')">
 <h2>💎 Ore Langka</h2>
 <p>Diamond / Gold</p>
 <p class="price">Harga sesuai jumlah</p>
 </div>
 
-<div class="card" onclick="order('Ancient Debris')">
+<div class="card" onclick="selectItem(this,'Ancient Debris')">
 <h2>🔥 Nether</h2>
 <p>Ancient Debris</p>
 <p class="price">Request harga</p>
@@ -109,33 +125,64 @@ margin:10px;
 
 </div>
 
-<button onclick="order('Order item Minecraft')">
-Order via WhatsApp
-</button>
-
 <div class="payments">
 
-<h2>Metode Pembayaran</h2>
+<h2>Pilih Metode Pembayaran</h2>
 
-<p>
-💚 GoPay<br>
-💜 OVO<br>
-💙 DANA<br>
-🟡 QRIS<br>
-🏦 Transfer Bank
-</p>
+<button class="payment-btn" onclick="selectPay(this,'GoPay')">GoPay</button>
+<button class="payment-btn" onclick="selectPay(this,'OVO')">OVO</button>
+<button class="payment-btn" onclick="selectPay(this,'DANA')">DANA</button>
+<button class="payment-btn" onclick="selectPay(this,'QRIS')">QRIS</button>
+<button class="payment-btn" onclick="selectPay(this,'Transfer Bank')">Transfer Bank</button>
 
 </div>
+
+<button class="order-btn" onclick="sendOrder()">Order Sekarang</button>
 
 </div>
 
 <script>
 
-function order(item){
+let selectedItem = "";
+let selectedPayment = "";
 
-let text = "Halo, saya ingin order: " + item;
+function selectItem(card,item){
 
-let url = "https://wa.me/628984830064?text=" + encodeURIComponent(text);
+document.querySelectorAll(".card").forEach(c=>{
+c.classList.remove("selected");
+});
+
+card.classList.add("selected");
+
+selectedItem = item;
+
+}
+
+function selectPay(btn,pay){
+
+document.querySelectorAll(".payment-btn").forEach(b=>{
+b.classList.remove("payment-selected");
+});
+
+btn.classList.add("payment-selected");
+
+selectedPayment = pay;
+
+}
+
+function sendOrder(){
+
+if(selectedItem=="" || selectedPayment==""){
+alert("Pilih item dan metode pembayaran dulu!");
+return;
+}
+
+let text =
+"Min saya mau beli: "+selectedItem+
+"\nSaya pakai metode pembayaran: "+selectedPayment;
+
+let url =
+"https://wa.me/628984830064?text="+encodeURIComponent(text);
 
 window.open(url);
 
