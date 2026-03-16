@@ -1,78 +1,73 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Jasa Cari Barang Minecraft - Ojan</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jasa Cari Barang Minecraft</title>
 
 <style>
 
 body{
-    margin:0;
-    font-family: Arial, sans-serif;
-    color:white;
-    text-align:center;
+margin:0;
+font-family:Arial;
+color:white;
+text-align:center;
 
-    /* Background Creeper */
-    background-image:url("https://wallpapercave.com/wp/wp2757874.jpg");
-    background-size:cover;
-    background-position:center;
+background-image:url("creeper.png");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
 }
 
 .overlay{
-    background:rgba(0,0,0,0.75);
-    min-height:100vh;
-    padding:40px;
+background:rgba(0,0,0,0.65);
+min-height:100vh;
+padding:30px;
 }
 
 h1{
-    font-size:40px;
-    margin-bottom:10px;
+font-size:32px;
 }
 
 .subtitle{
-    margin-bottom:40px;
-    font-size:18px;
+margin-bottom:30px;
 }
 
+/* GRID 2x2 */
 .container{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:20px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+max-width:500px;
+margin:auto;
 }
 
 .card{
-    background:#1e1e1e;
-    padding:20px;
-    width:220px;
-    border-radius:12px;
-    box-shadow:0 0 10px black;
-    transition:0.3s;
-}
-
-.card:hover{
-    transform:scale(1.05);
+background:#1e1e1e;
+padding:20px;
+border-radius:12px;
+box-shadow:0 0 10px black;
 }
 
 .price{
-    color:#00ff88;
-    font-weight:bold;
+color:#00ff88;
+font-weight:bold;
 }
 
 .order{
-    margin-top:40px;
+margin-top:30px;
 }
 
 .order-btn{
-    background:#25D366;
-    border:none;
-    padding:15px 35px;
-    font-size:18px;
-    border-radius:10px;
-    cursor:pointer;
+background:#25D366;
+border:none;
+padding:15px 35px;
+font-size:18px;
+border-radius:10px;
+cursor:pointer;
 }
 
 .order-btn:hover{
-    background:#1ebe5d;
+background:#1ebe5d;
 }
 
 </style>
@@ -114,6 +109,7 @@ h1{
 </div>
 
 <div class="order">
+
 <h2>Order Sekarang</h2>
 
 <a href="https://wa.me/628984830064">
@@ -125,4 +121,4 @@ h1{
 </div>
 
 </body>
-  </html>
+</html>
