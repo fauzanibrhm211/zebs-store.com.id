@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Jasa Cari Barang Minecraft</title>
 
 <style>
@@ -9,17 +11,29 @@
 body{
 margin:0;
 font-family:Arial;
-text-align:center;
 color:white;
-background-image:url("creeper.png");
-background-size:cover;
+text-align:center;
+
+background-image:url("minecraft-bg.jpg");
+background-size:contain;
+background-repeat:no-repeat;
 background-position:center;
+background-color:black;
 }
 
 .overlay{
-background:rgba(0,0,0,0.7);
+background:rgba(0,0,0,0.6);
 min-height:100vh;
-padding:30px;
+padding:20px;
+}
+
+h1{
+font-size:28px;
+margin-bottom:5px;
+}
+
+.subtitle{
+margin-bottom:25px;
 }
 
 .container{
@@ -30,10 +44,11 @@ max-width:500px;
 margin:auto;
 }
 
-/* CARD ITEM */
+/* ITEM CARD */
+
 .card{
-background:#1e1e1e;
-padding:20px;
+background:rgba(30,30,30,0.9);
+padding:18px;
 border-radius:12px;
 box-shadow:0 0 10px black;
 cursor:pointer;
@@ -44,10 +59,9 @@ transition:0.2s;
 transform:scale(1.05);
 }
 
-/* CARD YANG DIPILIH */
 .selected{
 border:3px solid #00ff88;
-transform:scale(1.08);
+transform:scale(1.1);
 }
 
 .price{
@@ -56,6 +70,7 @@ font-weight:bold;
 }
 
 /* PAYMENT */
+
 .payments{
 margin-top:30px;
 }
@@ -64,10 +79,15 @@ margin-top:30px;
 background:#333;
 border:none;
 color:white;
-padding:12px 20px;
+padding:12px 18px;
 margin:5px;
 border-radius:8px;
 cursor:pointer;
+transition:0.2s;
+}
+
+.payment-btn:hover{
+background:#555;
 }
 
 .payment-selected{
@@ -77,6 +97,7 @@ font-weight:bold;
 }
 
 /* ORDER BUTTON */
+
 .order-btn{
 margin-top:30px;
 background:#25D366;
@@ -85,40 +106,52 @@ padding:15px 30px;
 font-size:18px;
 border-radius:10px;
 cursor:pointer;
+box-shadow:0 0 10px black;
+}
+
+.order-btn:hover{
+transform:scale(1.05);
+}
+
+.footer{
+margin-top:40px;
+font-size:13px;
+opacity:0.8;
 }
 
 </style>
+
 </head>
 
 <body>
 
 <div class="overlay">
 
-<h1>⛏️ Jasa Cari Barang Minecraft</h1>
-<p>Malas mining? Biar Ojan yang cariin!</p>
+<h1>⛏️ Jasa Mining Minecraft</h1>
+<p class="subtitle">Malas cari bahan? Biar Ojan yang cariin!</p>
 
 <div class="container">
 
 <div class="card" onclick="selectItem(this,'Kayu 1 Stack')">
-<h2>🌳 Kayu</h2>
+<h3>🌳 Kayu</h3>
 <p>Semua jenis kayu</p>
-<p class="price">Rp2.000</p>
+<p class="price">Rp2.000 / stack</p>
 </div>
 
 <div class="card" onclick="selectItem(this,'Ore Biasa')">
-<h2>🪨 Ore Biasa</h2>
+<h3>🪨 Ore Biasa</h3>
 <p>Coal / Iron / Copper</p>
 <p class="price">Mulai Rp2.000</p>
 </div>
 
 <div class="card" onclick="selectItem(this,'Ore Langka')">
-<h2>💎 Ore Langka</h2>
+<h3>💎 Ore Langka</h3>
 <p>Diamond / Gold</p>
 <p class="price">Harga sesuai jumlah</p>
 </div>
 
 <div class="card" onclick="selectItem(this,'Ancient Debris')">
-<h2>🔥 Nether</h2>
+<h3>🔥 Nether</h3>
 <p>Ancient Debris</p>
 <p class="price">Request harga</p>
 </div>
@@ -127,7 +160,7 @@ cursor:pointer;
 
 <div class="payments">
 
-<h2>Pilih Metode Pembayaran</h2>
+<h2>Metode Pembayaran</h2>
 
 <button class="payment-btn" onclick="selectPay(this,'GoPay')">GoPay</button>
 <button class="payment-btn" onclick="selectPay(this,'OVO')">OVO</button>
@@ -137,54 +170,58 @@ cursor:pointer;
 
 </div>
 
-<button class="order-btn" onclick="sendOrder()">Order Sekarang</button>
+<button class="order-btn" onclick="sendOrder()">Order via WhatsApp</button>
+
+<div class="footer">
+Website order jasa mining Minecraft
+</div>
 
 </div>
 
 <script>
 
-let selectedItem = "";
-let selectedPayment = "";
+let selectedItem=""
+let selectedPayment=""
 
 function selectItem(card,item){
 
 document.querySelectorAll(".card").forEach(c=>{
-c.classList.remove("selected");
-});
+c.classList.remove("selected")
+})
 
-card.classList.add("selected");
+card.classList.add("selected")
 
-selectedItem = item;
+selectedItem=item
 
 }
 
 function selectPay(btn,pay){
 
 document.querySelectorAll(".payment-btn").forEach(b=>{
-b.classList.remove("payment-selected");
-});
+b.classList.remove("payment-selected")
+})
 
-btn.classList.add("payment-selected");
+btn.classList.add("payment-selected")
 
-selectedPayment = pay;
+selectedPayment=pay
 
 }
 
 function sendOrder(){
 
 if(selectedItem=="" || selectedPayment==""){
-alert("Pilih item dan metode pembayaran dulu!");
-return;
+alert("Pilih item dan metode pembayaran dulu!")
+return
 }
 
-let text =
+let text=
 "Min saya mau beli: "+selectedItem+
-"\nSaya pakai metode pembayaran: "+selectedPayment;
+"%0A"+"Saya pakai metode pembayaran: "+selectedPayment
 
-let url =
-"https://wa.me/628984830064?text="+encodeURIComponent(text);
+let url=
+"https://wa.me/628984830064?text="+text
 
-window.open(url);
+window.open(url)
 
 }
 
