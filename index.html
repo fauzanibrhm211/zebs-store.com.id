@@ -26,15 +26,17 @@ min-height:100vh;
 padding:20px;
 }
 
-/* FIX HEADER */
+/* HEADER FIX */
 .title{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-gap:8px;
+position:relative;
+display:inline-block;
 }
 
 .pickaxe{
+position:absolute;
+left:-45px;
+top:50%;
+transform:translateY(-50%);
 width:36px;
 height:36px;
 animation:goyangOre 2s infinite ease-in-out;
@@ -44,6 +46,7 @@ h1{
 margin-top:10px;
 }
 
+/* GRID */
 .grid{
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -77,6 +80,7 @@ border:3px solid #00ff88;
 transform:scale(1.1);
 }
 
+/* PAYMENT */
 .payments{
 margin-top:25px;
 }
@@ -116,7 +120,7 @@ cursor:pointer;
 100% { transform: rotate(0deg); }
 }
 
-/* DELAY */
+/* DELAY ANIMASI */
 .card:nth-child(1) img { animation-delay: 0s; }
 .card:nth-child(2) img { animation-delay: 0.2s; }
 .card:nth-child(3) img { animation-delay: 0.4s; }
@@ -137,7 +141,7 @@ cursor:pointer;
 
 <h1 class="title">
 <img src="pickaxe.png" class="pickaxe">
-Jasa Cari Barang Minecraft
+<span>Jasa Cari Barang Minecraft</span>
 </h1>
 
 <p>Order mining sesuai kebutuhan kamu</p>
@@ -245,4 +249,4 @@ window.open(url)
 
 </body>
 
-</html>
+  </html>
