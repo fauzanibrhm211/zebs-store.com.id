@@ -21,9 +21,23 @@ background-position:center;
 }
 
 .overlay{
-background:rgba(0,0,0,0.15); /* lebih terang */
+background:rgba(0,0,0,0.15);
 min-height:100vh;
 padding:20px;
+}
+
+/* HEADER */
+.title{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+}
+
+.pickaxe{
+width:42px;
+height:42px;
+animation:goyangOre 2s infinite ease-in-out;
 }
 
 h1{
@@ -51,8 +65,6 @@ transition:0.2s;
 width:30px;
 vertical-align:middle;
 margin-right:6px;
-
-/* 🔥 ANIMASI GOYANG */
 animation:goyangOre 2s infinite ease-in-out;
 }
 
@@ -95,16 +107,16 @@ border-radius:10px;
 cursor:pointer;
 }
 
-/* 🔥 KEYFRAMES ANIMASI */
+/* ANIMASI */
 @keyframes goyangOre {
-  0% { transform: rotate(0deg); }
-  25% { transform: rotate(6deg); }
-  50% { transform: rotate(0deg); }
-  75% { transform: rotate(-6deg); }
-  100% { transform: rotate(0deg); }
+0% { transform: rotate(0deg); }
+25% { transform: rotate(6deg); }
+50% { transform: rotate(0deg); }
+75% { transform: rotate(-6deg); }
+100% { transform: rotate(0deg); }
 }
 
-/* 🔥 DELAY BIAR GAK BARENG */
+/* DELAY */
 .card:nth-child(1) img { animation-delay: 0s; }
 .card:nth-child(2) img { animation-delay: 0.2s; }
 .card:nth-child(3) img { animation-delay: 0.4s; }
@@ -123,7 +135,11 @@ cursor:pointer;
 
 <div class="overlay">
 
-<h1>⛏️ Jasa Cari Barang Minecraft</h1>
+<h1 class="title">
+<img src="pickaxe.png" class="pickaxe">
+Jasa Cari Barang Minecraft
+</h1>
+
 <p>Order mining sesuai kebutuhan kamu</p>
 
 <div class="grid">
@@ -229,4 +245,4 @@ window.open(url)
 
 </body>
 
-</html>
+  </html>
