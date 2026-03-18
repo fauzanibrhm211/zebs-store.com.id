@@ -30,7 +30,6 @@ h1{
 margin-top:10px;
 }
 
-/* GRID */
 .grid{
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -64,6 +63,13 @@ border:3px solid #00ff88;
 transform:scale(1.1);
 }
 
+/* TEXT HARGA */
+.price{
+font-size:13px;
+color:#ccc;
+margin-top:5px;
+}
+
 /* PAYMENT */
 .payments{
 margin-top:25px;
@@ -85,7 +91,6 @@ color:black;
 font-weight:bold;
 }
 
-/* ORDER */
 .order-btn{
 margin-top:20px;
 background:#25D366;
@@ -96,7 +101,7 @@ border-radius:10px;
 cursor:pointer;
 }
 
-/* ANIMASI GOYANG */
+/* ANIMASI */
 @keyframes goyangOre {
 0% { transform: rotate(0deg); }
 25% { transform: rotate(6deg); }
@@ -105,7 +110,6 @@ cursor:pointer;
 100% { transform: rotate(0deg); }
 }
 
-/* DELAY BIAR KEREN */
 .card:nth-child(1) img { animation-delay: 0s; }
 .card:nth-child(2) img { animation-delay: 0.2s; }
 .card:nth-child(3) img { animation-delay: 0.4s; }
@@ -131,38 +135,47 @@ cursor:pointer;
 
 <div class="card" onclick="selectItem(this,'Diamond')">
 <h3><img src="diamond.png">Diamond</h3>
+<div class="price">Diamond: 3000 perak / 1 stack</div>
 </div>
 
 <div class="card" onclick="selectItem(this,'Coal')">
 <h3><img src="coal.png">Coal</h3>
+<div class="price">Coal: 500 perak / 1 stack</div>
 </div>
 
 <div class="card" onclick="selectItem(this,'Netherite')">
 <h3><img src="netherite.png">Netherite</h3>
+<div class="price">Netherite: 5000 perak / 1 stack</div>
 </div>
 
 <div class="card" onclick="selectItem(this,'Copper')">
 <h3><img src="copper.png">Copper</h3>
+<div class="price">Copper: 500 perak / 1 stack</div>
 </div>
 
 <div class="card" onclick="selectItem(this,'Gold')">
 <h3><img src="gold.png">Gold</h3>
+<div class="price">Gold: 2000 perak / 1 stack</div>
 </div>
 
 <div class="card" onclick="selectItem(this,'Iron')">
 <h3><img src="iron.png">Iron</h3>
+<div class="price">Iron: 1500 perak / 1 stack</div>
 </div>
 
 <div class="card" onclick="selectItem(this,'Redstone')">
 <h3><img src="redstone.png">Redstone</h3>
+<div class="price">Redstone: 1500 perak / 1 stack</div>
 </div>
 
 <div class="card" onclick="selectItem(this,'Lapis Lazuli')">
 <h3><img src="lapis.png">Lapis Lazuli</h3>
+<div class="price">Lapis Lazuli: 2000 perak / 1 stack</div>
 </div>
 
 <div class="card" onclick="selectItem(this,'Kayu')">
 <h3><img src="wood.png">Kayu</h3>
+<div class="price">Kayu: menyesuaikan</div>
 </div>
 
 </div>
@@ -219,4 +232,4 @@ window.open(url)
 
 </body>
 
-</html>
+  </html>
