@@ -12,15 +12,15 @@ body{
     color:white;
     text-align:center;
 
-    /* Ganti background ke kelinci */
+    /* Background kelinci */
     background-image:url("kelinci-bg.jpg");
-    background-size:cover;       /* full layar tapi tetap proporsional */
-    background-position:center;   /* selalu center */
+    background-size:cover;
+    background-position:center;
     background-repeat:no-repeat;
 }
 
 .overlay{
-    background:rgba(0,0,0,0.15); /* transparansi supaya tulisan terlihat */
+    background:rgba(0,0,0,0.15);
     min-height:100vh;
     padding:20px;
 }
@@ -201,10 +201,11 @@ function selectPay(btn,name){
 function sendOrder(){
     if(item=="" || pay==""){ alert("Pilih item dan metode pembayaran dulu!"); return }
     let text="Min saya mau beli "+item+" dan saya bayar pakai "+pay
-    let url="https://wa.me/08984830064?text="+encodeURIComponent(text)
+    // GANTI nomor WhatsApp ke format internasional (+62)
+    let url="https://wa.me/628984830064?text="+encodeURIComponent(text)
     window.open(url)
 }
 </script>
 
 </body>
-  </html>
+</html>
