@@ -1,210 +1,166 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="id">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jasa Cari Barang Minecraft</title>
+<title>ZEBS STORE</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
 
 <style>
 body{
-    margin:0;
-    font-family:Arial;
-    color:white;
-    text-align:center;
-
-    /* Background kelinci */
-    background-image:url("kelinci-bg.jpg");
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
+background:#0f172a;
+color:white;
+font-family:Arial;
 }
 
-.overlay{
-    background:rgba(0,0,0,0.15);
-    min-height:100vh;
-    padding:20px;
-}
-
-h1{
-    margin-top:10px;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-    max-width:500px;
-    margin:auto;
-    margin-top:20px;
-}
-
-.card{
-    background:rgba(0,0,0,0.65);
-    padding:16px;
-    border-radius:12px;
-    cursor:pointer;
-    transition:0.2s;
-}
-
-.card img{
-    width:30px;
-    vertical-align:middle;
-    margin-right:6px;
-    animation:goyangOre 2s infinite ease-in-out;
-}
-
-.card:hover{
-    transform:scale(1.05);
+.card-hover:hover{
+transform:translateY(-5px);
+transition:0.3s;
 }
 
 .selected{
-    border:3px solid #00ff88;
-    transform:scale(1.1);
+border:2px solid #8B5CF6;
+transform:scale(1.05);
+box-shadow:0 0 15px #8B5CF6;
 }
-
-.price{
-    font-size:13px;
-    color:#ccc;
-    margin-top:5px;
-}
-
-.payments{
-    margin-top:25px;
-}
-
-.pay-btn{
-    background:#333;
-    border:none;
-    color:white;
-    padding:10px 16px;
-    margin:5px;
-    border-radius:8px;
-    cursor:pointer;
-}
-
-.pay-selected{
-    background:#00ff88;
-    color:black;
-    font-weight:bold;
-}
-
-.order-btn{
-    margin-top:20px;
-    background:#25D366;
-    border:none;
-    padding:14px 26px;
-    font-size:16px;
-    border-radius:10px;
-    cursor:pointer;
-}
-
-@keyframes goyangOre {
-    0% { transform: rotate(0deg); }
-    25% { transform: rotate(6deg); }
-    50% { transform: rotate(0deg); }
-    75% { transform: rotate(-6deg); }
-    100% { transform: rotate(0deg); }
-}
-
-.card:nth-child(1) img { animation-delay: 0s; }
-.card:nth-child(2) img { animation-delay: 0.2s; }
-.card:nth-child(3) img { animation-delay: 0.4s; }
-.card:nth-child(4) img { animation-delay: 0.6s; }
-.card:nth-child(5) img { animation-delay: 0.8s; }
-.card:nth-child(6) img { animation-delay: 1s; }
-.card:nth-child(7) img { animation-delay: 1.2s; }
-.card:nth-child(8) img { animation-delay: 1.4s; }
-.card:nth-child(9) img { animation-delay: 1.6s; }
 </style>
-</head>
 
+</head>
 <body>
 
-<div class="overlay">
-<h1>⛏️ Jasa Cari Barang Minecraft - Zebs Store</h1>
-<p>Order mining sesuai kebutuhan kamu</p>
-
-<div class="grid">
-    <div class="card" onclick="selectItem(this,'Diamond')">
-        <h3><img src="diamond.png">Diamond</h3>
-        <div class="price">Diamond: Rp3.000 / 1 stack</div>
-    </div>
-
-    <div class="card" onclick="selectItem(this,'Coal')">
-        <h3><img src="coal.png">Coal</h3>
-        <div class="price">Coal: Rp500 / 1 stack</div>
-    </div>
-
-    <div class="card" onclick="selectItem(this,'Netherite')">
-        <h3><img src="netherite.png">Netherite</h3>
-        <div class="price">Netherite: Rp5.000 / 1 stack</div>
-    </div>
-
-    <div class="card" onclick="selectItem(this,'Copper')">
-        <h3><img src="copper.png">Copper</h3>
-        <div class="price">Copper: Rp500 / 1 stack</div>
-    </div>
-
-    <div class="card" onclick="selectItem(this,'Gold')">
-        <h3><img src="gold.png">Gold</h3>
-        <div class="price">Gold: Rp2.000 / 1 stack</div>
-    </div>
-
-    <div class="card" onclick="selectItem(this,'Iron')">
-        <h3><img src="iron.png">Iron</h3>
-        <div class="price">Iron: Rp1.500 / 1 stack</div>
-    </div>
-
-    <div class="card" onclick="selectItem(this,'Redstone')">
-        <h3><img src="redstone.png">Redstone</h3>
-        <div class="price">Redstone: Rp1.500 / 1 stack</div>
-    </div>
-
-    <div class="card" onclick="selectItem(this,'Lapis Lazuli')">
-        <h3><img src="lapis.png">Lapis Lazuli</h3>
-        <div class="price">Lapis Lazuli: Rp2.000 / 1 stack</div>
-    </div>
-
-    <div class="card" onclick="selectItem(this,'Kayu')">
-        <h3><img src="wood.png">Kayu</h3>
-        <div class="price">Harga menyesuaikan</div>
-    </div>
+<!-- HEADER -->
+<div class="text-center py-10">
+<h1 class="text-4xl font-bold">✨ ZEBS STORE</h1>
+<p class="text-gray-400">Jasa Mining & Rank Minecraft</p>
 </div>
 
-<div class="payments">
-<h3>Pilih Metode Pembayaran</h3>
-<button class="pay-btn" onclick="selectPay(this,'DANA')">DANA</button>
-<button class="pay-btn" onclick="selectPay(this,'OVO')">OVO</button>
-<button class="pay-btn" onclick="selectPay(this,'GoPay')">GoPay</button>
-<button class="pay-btn" onclick="selectPay(this,'QRIS')">QRIS</button>
+<!-- ================= JASA ================= -->
+<div class="max-w-md mx-auto px-4">
+<h2 class="text-2xl font-bold mb-4 text-center">⛏️ Jasa Cari Barang</h2>
+
+<div class="grid grid-cols-2 gap-4">
+
+<div class="bg-slate-800 p-4 rounded-xl card-hover item-card" onclick="toggleItem(this,'Coal')">Coal<br><span class="text-sm text-gray-400">Rp500</span></div>
+<div class="bg-slate-800 p-4 rounded-xl card-hover item-card" onclick="toggleItem(this,'Copper')">Copper<br><span class="text-sm text-gray-400">Rp500</span></div>
+<div class="bg-slate-800 p-4 rounded-xl card-hover item-card" onclick="toggleItem(this,'Iron')">Iron<br><span class="text-sm text-gray-400">Rp1.500</span></div>
+<div class="bg-slate-800 p-4 rounded-xl card-hover item-card" onclick="toggleItem(this,'Redstone')">Redstone<br><span class="text-sm text-gray-400">Rp1.500</span></div>
+<div class="bg-slate-800 p-4 rounded-xl card-hover item-card" onclick="toggleItem(this,'Gold')">Gold<br><span class="text-sm text-gray-400">Rp2.000</span></div>
+<div class="bg-slate-800 p-4 rounded-xl card-hover item-card" onclick="toggleItem(this,'Lapis')">Lapis<br><span class="text-sm text-gray-400">Rp2.000</span></div>
+<div class="bg-slate-800 p-4 rounded-xl card-hover item-card" onclick="toggleItem(this,'Diamond')">Diamond<br><span class="text-sm text-gray-400">Rp3.000</span></div>
+<div class="bg-slate-800 p-4 rounded-xl card-hover item-card" onclick="toggleItem(this,'Netherite')">Netherite<br><span class="text-sm text-gray-400">Rp5.000</span></div>
+
+<div class="bg-slate-800 p-4 rounded-xl card-hover item-card col-span-2" onclick="toggleItem(this,'Kayu')">
+Kayu<br><span class="text-sm text-gray-400">Harga menyesuaikan</span>
 </div>
 
-<button class="order-btn" onclick="sendOrder()">Order via WhatsApp</button>
+</div>
+</div>
+
+<!-- ================= RANK ================= -->
+<div class="max-w-md mx-auto px-4 mt-10">
+<h2 class="text-2xl font-bold mb-4 text-center">💎 List Rank</h2>
+
+<div class="space-y-4">
+
+<div class="bg-slate-800 p-5 rounded-xl card-hover rank-card" onclick="toggleRank(this,'VIP')">⭐ VIP<br>Rp3.000</div>
+<div class="bg-slate-800 p-5 rounded-xl card-hover rank-card" onclick="toggleRank(this,'Diamond Rank')">💎 Diamond<br>Rp3.000</div>
+<div class="bg-slate-800 p-5 rounded-xl card-hover rank-card" onclick="toggleRank(this,'Gold')">🥇 Gold<br>Rp3.000</div>
+<div class="bg-slate-800 p-5 rounded-xl card-hover rank-card" onclick="toggleRank(this,'Iron')">⚙️ Iron<br>Rp3.000</div>
+<div class="bg-slate-800 p-5 rounded-xl card-hover rank-card" onclick="toggleRank(this,'Admin')">👑 Admin<br>Rp10.000</div>
+
+</div>
+</div>
+
+<!-- ================= PEMBAYARAN ================= -->
+<div class="max-w-md mx-auto px-4 mt-10 text-center">
+<h2 class="text-2xl font-bold mb-4">💳 Metode Pembayaran</h2>
+
+<div class="flex flex-wrap justify-center gap-3">
+
+<button class="bg-slate-800 px-4 py-2 rounded-lg pay-btn" onclick="togglePay(this,'DANA')">DANA</button>
+<button class="bg-slate-800 px-4 py-2 rounded-lg pay-btn" onclick="togglePay(this,'OVO')">OVO</button>
+<button class="bg-slate-800 px-4 py-2 rounded-lg pay-btn" onclick="togglePay(this,'GoPay')">GoPay</button>
+<button class="bg-slate-800 px-4 py-2 rounded-lg pay-btn" onclick="togglePay(this,'QRIS')">QRIS</button>
+
+</div>
+</div>
+
+<!-- ORDER -->
+<div class="text-center mt-10">
+<button onclick="orderWA()" class="bg-green-500 px-6 py-3 rounded-lg">
+Order via WhatsApp
+</button>
 </div>
 
 <script>
-let item=""
-let pay=""
 
-function selectItem(card,name){
-    document.querySelectorAll(".card").forEach(c=>{c.classList.remove("selected")})
-    card.classList.add("selected")
-    item=name
+let selectedItem=""
+let selectedRank=""
+let selectedPay=""
+
+function toggleItem(el,name){
+if(el.classList.contains("selected")){
+el.classList.remove("selected")
+selectedItem=""
+}else{
+document.querySelectorAll(".item-card").forEach(i=>i.classList.remove("selected"))
+el.classList.add("selected")
+selectedItem=name
+}
 }
 
-function selectPay(btn,name){
-    document.querySelectorAll(".pay-btn").forEach(b=>{b.classList.remove("pay-selected")})
-    btn.classList.add("pay-selected")
-    pay=name
+function toggleRank(el,name){
+if(el.classList.contains("selected")){
+el.classList.remove("selected")
+selectedRank=""
+}else{
+document.querySelectorAll(".rank-card").forEach(r=>r.classList.remove("selected"))
+el.classList.add("selected")
+selectedRank=name
+}
 }
 
-function sendOrder(){
-    if(item=="" || pay==""){ alert("Pilih item dan metode pembayaran dulu!"); return }
-    let text="Min saya mau beli "+item+" dan saya bayar pakai "+pay
-    // GANTI nomor WhatsApp ke format internasional (+62)
-    let url="https://wa.me/628984830064?text="+encodeURIComponent(text)
-    window.open(url)
+function togglePay(el,name){
+if(el.classList.contains("selected")){
+el.classList.remove("selected")
+selectedPay=""
+}else{
+document.querySelectorAll(".pay-btn").forEach(p=>p.classList.remove("selected"))
+el.classList.add("selected")
+selectedPay=name
 }
+}
+
+function orderWA(){
+
+if(selectedItem=="" && selectedRank==""){
+alert("Pilih barang atau rank dulu!")
+return
+}
+
+if(selectedPay==""){
+alert("Pilih metode pembayaran dulu!")
+return
+}
+
+let text="Min saya mau beli "
+
+if(selectedItem!=""){
+text+=selectedItem+" "
+}
+
+if(selectedRank!=""){
+text+="Rank "+selectedRank+" "
+}
+
+text+="dan bayar pakai "+selectedPay
+
+let url="https://wa.me/628984830064?text="+encodeURIComponent(text)
+window.open(url)
+
+}
+
 </script>
 
 </body>
