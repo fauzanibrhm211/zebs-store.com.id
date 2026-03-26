@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - ZEBS STORE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Form.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container form-container">
+        <div style="margin-bottom: 30px; display: flex; align-items: center; gap: 15px;">
+            <a href="Index.html" style="color: white; text-decoration: none; font-weight: 600;">← Kembali</a>
+            <h2 id="game-title">Top Up Game</h2>
+        </div>
+
+        <div class="checkout-card">
+            <div class="step-header">
+                <div class="step-num">1</div>
+                <h3>Masukkan Data Akun</h3>
+            </div>
+            <div id="input-container" style="display: flex; gap: 10px; flex-wrap: wrap;">
+                </div>
+            <p id="id-helper" style="font-size: 0.7rem; color: #888; margin-top: 10px;">
+                *Pastikan data akun sudah benar.
+            </p>
+        </div>
+
+        <div class="checkout-card">
+            <div class="step-header">
+                <div class="step-num">2</div>
+                <h3>Pilih Nominal</h3>
+            </div>
+            <div id="nominal-list" class="grid-nominal">
+                </div>
+        </div>
+
+        <div class="checkout-card">
+            <div class="step-header">
+                <div class="step-num">3</div>
+                <h3>Metode Pembayaran</h3>
+            </div>
+            <div class="grid-payment">
+                <div class="item-payment" data-pay="DANA">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg" alt="DANA" class="payment-img">
+                </div>
+                <div class="item-payment" data-pay="OVO">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Logo_ovo_purple.svg" alt="OVO" class="payment-img">
+                </div>
+                <div class="item-payment" data-pay="GOPAY">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Gopay_logo.svg" alt="GOPAY" class="payment-img">
+                </div>
+                <div class="item-payment" data-pay="QRIS">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Logo_QRIS.svg" alt="QRIS" class="payment-img">
+                </div>
+            </div>
+        </div>
+
+        <div class="checkout-card">
+            <div class="step-header">
+                <div class="step-num">4</div>
+                <h3>Konfirmasi Pesanan</h3>
+            </div>
+            <button class="btn-buy" onclick="prosesBayar()">Beli Sekarang</button>
+        </div>
+    </div>
+
+    <script src="Form.js"></script>
+</body>
+</html>

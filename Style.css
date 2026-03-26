@@ -1,0 +1,296 @@
+/* ZEBS STORE PREMIUM STYLE
+   Requirement: Dark Gradient, Glassmorphism, Neon Glow, Responsive HP
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    --bg-dark: #0a0510;
+    --neon-purple: #9d00ff;
+    --neon-blue: #00d4ff;
+    --glass-white: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background: radial-gradient(circle at top right, #1a0b2e 0%, #0a0510 50%, #050a1a 100%);
+    background-attachment: fixed;
+    color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* =========================================
+   HEADER & NAVBAR
+   ========================================= */
+header {
+    background: rgba(10, 5, 16, 0.8);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--glass-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 15px 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    filter: drop-shadow(0 0 8px var(--neon-blue));
+}
+
+.logo-text {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.logo-text span {
+    color: var(--neon-purple);
+    text-shadow: 0 0 10px var(--neon-purple);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #ccc;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+nav a:hover, nav a.active {
+    color: var(--neon-blue);
+    text-shadow: 0 0 8px var(--neon-blue);
+}
+
+/* =========================================
+   HERO SECTION
+   ========================================= */
+.hero {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    background: linear-gradient(to right, #fff, var(--neon-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, var(--neon-purple), var(--neon-blue));
+    border: none;
+    padding: 14px 30px;
+    color: white;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 0 15px rgba(157, 0, 255, 0.4);
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(0, 212, 255, 0.6);
+}
+
+/* =========================================
+   GAME GRID (HOME)
+   ========================================= */
+.section-title {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--neon-blue);
+    padding-left: 15px;
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.game-card {
+    background: var(--glass-white);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    transition: var(--transition);
+    position: relative;
+    backdrop-filter: blur(10px);
+}
+
+.game-card:hover {
+    border-color: var(--neon-purple);
+    box-shadow: 0 0 20px rgba(157, 0, 255, 0.3);
+    transform: translateY(-5px);
+}
+
+.game-card:active {
+    transform: scale(0.95); /* Click animation scale kecil */
+}
+
+.game-img-container {
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.game-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.game-info h4 {
+    font-size: 0.85rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.game-info p {
+    font-size: 0.7rem;
+    color: #888;
+}
+
+/* =========================================
+   PAYMENT METHODS & NOMINAL (FORM PAGE)
+   ========================================= */
+.card {
+    background: var(--glass-white);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 25px;
+    padding: 25px;
+}
+
+.grid-nominal, .grid-payment {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.item-nominal, .item-payment {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    padding: 15px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.item-nominal:hover, .item-payment:hover {
+    border-color: var(--neon-blue);
+    background: rgba(0, 212, 255, 0.05);
+}
+
+.item-nominal.active, .item-payment.active {
+    border-color: var(--neon-purple);
+    background: rgba(157, 0, 255, 0.1);
+    box-shadow: 0 0 15px rgba(157, 0, 255, 0.2);
+}
+
+.payment-logo {
+    height: 20px;
+    filter: brightness(0) invert(1); /* Biar logo jadi putih */
+}
+
+/* =========================================
+   ANIMATIONS & UTILITIES
+   ========================================= */
+input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 12px;
+    color: white;
+    outline: none;
+    transition: var(--transition);
+}
+
+input:focus {
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
+}
+
+.btn-buy {
+    width: 100%;
+    padding: 16px;
+    border-radius: 15px;
+    border: none;
+    background: linear-gradient(90deg, var(--neon-purple), var(--neon-blue));
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: var(--transition);
+}
+
+/* Toast Modern */
+.toast {
+    position: fixed;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 12px 25px;
+    border-radius: 50px;
+    border: 1px solid var(--neon-blue);
+    transition: 0.5s ease;
+    z-index: 1000;
+}
+
+.toast.show {
+    bottom: 30px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .games-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero h2 { font-size: 1.6rem; }
+}
